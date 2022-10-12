@@ -4,6 +4,8 @@
 
 Save all your articles written in Monalage in SQLite3. Only articles whose titles have been changed are subject to text update.
 
+<!--
+
 # DEMO
 
 * [demo](https://ytyaru.github.io/Python.Monaledge.Article.Backup.20221012113238/)
@@ -14,17 +16,15 @@ Save all your articles written in Monalage in SQLite3. Only articles whose title
 
 * sales point
 
+-->
+
 # Requirement
 
 * <time datetime="2022-10-12T11:32:31+0900">2022-10-12</time>
 * [Raspbierry Pi](https://ja.wikipedia.org/wiki/Raspberry_Pi) 4 Model B Rev 1.2
 * [Raspberry Pi OS](https://ja.wikipedia.org/wiki/Raspbian) buster 10.0 2020-08-20 <small>[setup](http://ytyaru.hatenablog.com/entry/2020/10/06/111111)</small>
 * bash 5.0.3(1)-release
-* Python 2.7.16
 * Python 3.10.5
-* [pyxel][] 1.3.1
-
-[pyxel]:https://github.com/kitao/pyxel
 
 ```sh
 $ uname -a
@@ -33,31 +33,29 @@ Linux raspberrypi 5.10.103-v7l+ #1529 SMP Tue Mar 8 12:24:00 GMT 2022 armv7l GNU
 
 # Installation
 
-Install Python 3.7 or higher.
-
-Next, install [pyxel][] as follows.
-
-* [pyxel/README](https://github.com/kitao/pyxel/blob/master/README.md#how-to-install)
-
 ```sh
-sudo apt install python3 python3-pip libsdl2-dev libsdl2-image-dev
-git clone https://github.com/kitao/pyxel.git
-cd pyxel
-make -C pyxel/core clean all
-pip3 install .
+git clone https://github.com/ytyaru/Python.Monaledge.Article.Backup.20221012113238
 ```
 
 # Usage
 
 ```sh
-git clone https://github.com/ytyaru/Python.Monaledge.Article.Backup.20221012113238
 cd Python.Monaledge.Article.Backup.20221012113238/src
-./run.py
+ADDRESS='An address for Monacoin registered in Monaledge'
+./run.py $ADDRESS
+./file.sh
 ```
+
+File|Use
+----|---
+`run.py`|Back up the article (get an article from WebAPI and save it in SQLITE3)
+`file.sh`|Output the article to the markdown file (output to the markdown from SQLite3)
+
+`run.py` passs the monacoin address to the first number.
 
 # Note
 
-* important point
+* Articles whose titles have not been updated have not been updated in the DB
 
 # Author
 
